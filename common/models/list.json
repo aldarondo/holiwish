@@ -8,10 +8,6 @@
       "type": "string",
       "required": true
     },
-    "list-id": {
-      "type": "number",
-      "required": true
-    },
     "created-by": {
       "type": "string",
       "required": true
