@@ -1,19 +1,16 @@
 {
-  "name": "list-item",
-  "plural": "list-items",
+  "name": "category",
+  "plural": "categories",
   "base": "PersistedModel",
   "idInjection": true,
   "properties": {
-    "item-name": {
+    "name": {
       "type": "string",
       "required": true
     },
-    "list-item-id": {
+    "category-id": {
       "type": "number",
       "required": true
-    },
-    "description": {
-      "type": "string"
     }
   },
   "validations": [],
