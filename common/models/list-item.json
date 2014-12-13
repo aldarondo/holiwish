@@ -8,16 +8,23 @@
       "type": "string",
       "required": true
     },
-    "list-item-id": {
-      "type": "number",
-      "required": true
-    },
     "description": {
       "type": "string"
     }
   },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "list": {
+      "type": "belongsTo",
+      "model": "list",
+      "foreignKey": ""
+    },
+    "category": {
+      "type": "belongsTo",
+      "model": "category",
+      "foreignKey": ""
+    }
+  },
   "acls": [],
   "methods": []
 }
