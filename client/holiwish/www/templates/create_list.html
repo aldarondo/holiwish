@@ -1,0 +1,21 @@
+<ion-modal-view>
+  <ion-header-bar>
+    <h1 class="title">Create a New List</h1>
+    <div class="buttons">
+      <button class="button button-clear" ng-click="closeCreate()">Close</button>
+    </div>
+  </ion-header-bar>
+  <ion-content>
+    <form ng-submit="doCreate()">
+      <div class="list">
+        <label class="item item-input">
+          <span class="input-label">List Title</span>
+          <input type="text" ng-model="listData.title">
+        </label>
+        <label class="item">
+          <button class="button button-block button-positive" type="submit">Create List</button>
+        </label>
+      </div>
+    </form>
+  </ion-content>
+</ion-modal-view>

@@ -1,53 +1,31 @@
-angular.module('starter.controllers', [])
+angular.module('starter.controllers', ['starter.services'])
 
-.controller('AppCtrl', function($scope, $ionicModal, $timeout) {
+.controller('AppCtrl', function($scope, $ionicModal, $timeout, ListsService) {
   // Form data for the login modal
-  $scope.loginData = {};
+  $scope.listData = {};
+  $scope.lists = ListsService.getAllLists();
 
-  // Create the login modal that we will use later
-  $ionicModal.fromTemplateUrl('templates/login.html', {
+  $ionicModal.fromTemplateUrl('templates/create_list.html', {
     scope: $scope
   }).then(function(modal) {
-    $scope.modal = modal;
+    $scope.createListModal = modal;
   });
 
-  // Triggered in the login modal to close it
-  $scope.closeLogin = function() {
-    $scope.modal.hide();
+  $scope.create = function() {
+    $scope.createListModal.show();
   };
-
-  // Open the login modal
-  $scope.createAccount = function() {
-    $scope.modal.show();
+  $scope.closeCreate = function() {
+    $scope.createListModal.hide();
   };
-
-  // Open the login modal
-  $scope.login = function() {
-    $scope.modal.show();
-  };
-
-  // Perform the login action when the user submits the login form
-  $scope.doLogin = function() {
-    console.log('Doing login', $scope.loginData);
-
-    // Simulate a login delay. Remove this and replace with your login
-    // code if using a login system
-    $timeout(function() {
-      $scope.closeLogin();
-    }, 1000);
+  $scope.doCreate = function() {
+    ListsService.createList($scope.listData.title);
   };
 })
 
-.controller('PlaylistsCtrl', function($scope) {
-  $scope.playlists = [
-    { title: 'Reggae', id: 1 },
-    { title: 'Chill', id: 2 },
-    { title: 'Dubstep', id: 3 },
-    { title: 'Indie', id: 4 },
-    { title: 'Rap', id: 5 },
-    { title: 'Cowbell', id: 6 }
-  ];
+.controller('ListsCtrl', function($scope, ListsService) {
+  $scope.lists = ListsService.getAllLists();
 })
 
-.controller('PlaylistCtrl', function($scope, $stateParams) {
+.controller('ListCtrl', function($scope, $stateParams, ListsService) {
+  $scope.list = ListsService.getList($stateParams.listId);
 });
