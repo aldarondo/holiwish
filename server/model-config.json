@@ -25,5 +25,13 @@
   "Role": {
     "dataSource": "db",
     "public": false
+  },
+  "list-item": {
+    "dataSource": "db",
+    "public": true
+  },
+  "list": {
+    "dataSource": "db",
+    "public": true
   }
 }
