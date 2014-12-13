@@ -5,9 +5,9 @@
     "ACL": 1,
     "RoleMapping": 1,
     "Role": 1,
-    "list-item": 1,
-    "list": 1,
-    "category": 2
+    "list-item": 3,
+    "list": 3,
+    "category": 4
   },
   "models": {
     "User": {},
@@ -15,10 +15,18 @@
     "ACL": {},
     "RoleMapping": {},
     "Role": {},
-    "list-item": {},
-    "list": {},
+    "list-item": {
+      "1": "{\"item-name\":\"Pony\",\"description\":\"Black hair and life size\",\"id\":1,\"listId\":1,\"categoryId\":2}",
+      "2": "{\"item-name\":\"Transformer\",\"description\":\"Runs down the street\",\"id\":2,\"listId\":2,\"categoryId\":0}"
+    },
+    "list": {
+      "1": "{\"list-name\":\"Ladina's Christmas\",\"created-by\":\"Charles\",\"id\":1}",
+      "2": "{\"list-name\":\"Jack's Christmas\",\"created-by\":\"Charles\",\"id\":2}"
+    },
     "category": {
-      "1": "{\"name\":\"Clothing\",\"id\":1}"
+      "1": "{\"name\":\"Clothing\",\"id\":1}",
+      "2": "{\"name\":\"Animal\",\"id\":2}",
+      "3": "{\"name\":\"Toy\",\"id\":3}"
     }
   }
 }
