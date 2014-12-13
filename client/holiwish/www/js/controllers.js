@@ -15,6 +15,7 @@ angular.module('starter.controllers', ['starter.services'])
     $scope.createListModal.show();
   };
   $scope.closeCreate = function() {
+    $scope.listData = {};
     $scope.createListModal.hide();
   };
   $scope.doCreate = function() {
@@ -25,13 +26,23 @@ angular.module('starter.controllers', ['starter.services'])
 
 .controller('ListsCtrl', function($scope, ListsService) {
   $scope.lists = ListsService.getAllLists();
+  debugger;
 })
 
-.controller('ListCtrl', function($scope, $stateParams, ListsService) {
-  $scope.list = ListsService.getList($stateParams.listId);
+.controller('ListCtrl', function($scope, $stateParams, $q, ListsService) {
+  $scope.list;
+  ListsService.getList($stateParams.listId).then(function(list) {
+    $scope.list = list;
+  });
   $scope.editing = false;
+  $scope.data = {};
 
   $scope.toggleEdit = function() {
     $scope.editing = !$scope.editing;
   };
+
+  $scope.addToList = function() {
+    ListsService.addToList($scope.list, {"name": $scope.data.newItem});
+    $scope.data.newItem = "";
+  }
 });

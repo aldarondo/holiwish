@@ -19,7 +19,7 @@
 // 	return usersService;
 // });
 angular.module('starter.services', [])
-.service('ListsService', function ($http){
+.service('ListsService', function ($http, $q){
 	var ListsService = {};
 
 	ListsService.lists = [];
@@ -33,26 +33,24 @@ angular.module('starter.services', [])
 	};
 
 	ListsService.addToList = function (list, item) {
-		this.lists[lists.indexOf(list)].push(item);
+		// for(var i=0; i < this.lists.length; i++) {
+		// 	if (this.lists[i].id == list.id) {
+		// 		this.lists[this.lists.indexOf(list)].push(item);
+		// 	}
+		// }
+		if (! list.items) list.items = [];
+		list.items.push(item);
 	};
 
 	ListsService.getList = function (id) {
-		return {
-			"title": "Christmas List",
-			"items": [
-			{
-				"title": "XBox"
-			},
-			{
-				"title": "Socks"
-			},
-			{
-				"title": "Pants"
-			},
-			{
-				"title": "Toothbrush"
-			}]
-		};
+		var deferred = $q.defer();
+  		var promise = deferred.promise;
+
+	 	$http.get('http://localhost:3000/api/lists/' + id).then(function(response) {
+	 		deferred.resolve(response.data);
+	 	});
+
+	 	return promise;
 	}
 
 	ListsService.getAllLists = function () {
@@ -62,9 +60,8 @@ angular.module('starter.services', [])
 	 		for (var i = 0; i < response.data.length; i++) {
 	 			that.lists.push(response.data[i]);
 	 		}
+	 		return this.lists;
 	 	});
-
-		return this.lists;
 	}
 
 	return ListsService;

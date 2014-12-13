@@ -1,10 +1,17 @@
 <ion-view title="View List">
   <ion-content>
     <h1>{{list["list-name"]}}</h1>
-    <button ng-click="toggleEdit()">Start/Stop Editing</button>
-    
-    <ul ng-repeat="item in list.items">
-    <li>{{item.title}}</li>
-    </ul>
+    <div class="padding-vertical">
+    <button class='button button-royal' ng-click="toggleEdit()">Start/Stop Editing</button>
+    </div>
+  <form ng-submit="addToList()">
+  <label ng-show="editing" class="item item-input">
+    <span class="input-label">Add a New Item</span>
+    <input ng-model="data.newItem" type="text">
+  </label>
+  </form>
+    <ion-list ng-repeat="item in list.items">
+    <ion-item>{{item.name}}</ion-item>
+    </ion-list>
   </ion-content>
 </ion-view>
