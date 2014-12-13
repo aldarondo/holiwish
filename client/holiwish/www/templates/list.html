@@ -1,6 +1,8 @@
 <ion-view title="View List">
   <ion-content>
     <h1>{{list.title}}</h1>
+    <button ng-click="toggleEdit()">Start/Stop Editing</button>
+    
     <ul ng-repeat="item in list.items">
     <li>{{item.title}}</li>
     </ul>

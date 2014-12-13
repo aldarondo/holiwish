@@ -19,6 +19,7 @@ angular.module('starter.controllers', ['starter.services'])
   };
   $scope.doCreate = function() {
     ListsService.createList($scope.listData.title);
+    $scope.closeCreate();
   };
 })
 
@@ -28,4 +29,9 @@ angular.module('starter.controllers', ['starter.services'])
 
 .controller('ListCtrl', function($scope, $stateParams, ListsService) {
   $scope.list = ListsService.getList($stateParams.listId);
+  $scope.editing = false;
+
+  $scope.toggleEdit = function() {
+    $scope.editing = !$scope.editing;
+  };
 });

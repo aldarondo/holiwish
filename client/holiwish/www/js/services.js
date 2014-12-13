@@ -26,9 +26,11 @@ angular.module('starter.services', [])
 
 
 	ListsService.createList = function (title) {
-		$http.post('http://localhost:3000/lists', {"title": title}).then(function() {
-			debugger;
-		});
+		// $http.post('http://localhost:3000/lists', {"title": title}).then(function() {
+		// 	debugger;
+		// });
+		var id = Math.random() * 100;
+		this.lists.push({"id":id, "title": title, "items": []});
 	};
 
 	ListsService.addToList = function (list, item) {
@@ -54,12 +56,8 @@ angular.module('starter.services', [])
 		};
 	}
 
-	ListsService.getAllLists = function (id) {
-		return [
-		{
-			"title": "Christmas List",
-			"id": "tmp123"
-		}];
+	ListsService.getAllLists = function () {
+		return this.lists;
 	}
 
 	return ListsService;
