@@ -1,0 +1,23 @@
+{
+  "name": "list-item",
+  "plural": "list-items",
+  "base": "Model",
+  "idInjection": true,
+  "properties": {
+    "item-name": {
+      "type": "string",
+      "required": true
+    },
+    "list-item-id": {
+      "type": "number",
+      "required": true
+    },
+    "description": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": []
+}
