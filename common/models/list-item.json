@@ -8,10 +8,6 @@
       "type": "string",
       "required": true
     },
-    "list-item-id": {
-      "type": "number",
-      "required": true
-    },
     "description": {
       "type": "string"
     }
