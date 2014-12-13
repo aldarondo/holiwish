@@ -17,6 +17,11 @@ angular.module('starter.controllers', [])
   };
 
   // Open the login modal
+  $scope.createAccount = function() {
+    $scope.modal.show();
+  };
+
+  // Open the login modal
   $scope.login = function() {
     $scope.modal.show();
   };
