@@ -26,7 +26,6 @@ angular.module('starter.controllers', ['starter.services'])
 
 .controller('ListsCtrl', function($scope, ListsService) {
   $scope.lists = ListsService.getAllLists();
-  debugger;
 })
 
 .controller('ListCtrl', function($scope, $stateParams, $q, ListsService) {

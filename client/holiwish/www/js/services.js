@@ -27,7 +27,7 @@ angular.module('starter.services', [])
 
 	ListsService.createList = function (title) {
 		var that = this;
-		$http.post('http://localhost:3000/api/lists', {"list-name": title, "list-id": 0, "created-by": "Claire", "id": 0}).then(function(response) {
+		$http.post('http://localhost:3000/api/lists', {"list-name": title, "created-by": "Claire", "id": 0}).then(function(response) {
 			that.lists.push(response.data)	
 		});
 	};
@@ -60,8 +60,8 @@ angular.module('starter.services', [])
 	 		for (var i = 0; i < response.data.length; i++) {
 	 			that.lists.push(response.data[i]);
 	 		}
-	 		return this.lists;
 	 	});
+ 		return this.lists;
 	}
 
 	return ListsService;
